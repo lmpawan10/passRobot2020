@@ -1,0 +1,386 @@
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pid.cpp"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._ZN3PID5setKpEf,"ax",%progbits
+  18              		.align	1
+  19              		.global	_ZN3PID5setKpEf
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  23              		.fpu fpv4-sp-d16
+  25              	_ZN3PID5setKpEf:
+  26              	.LFB237:
+  27              		.file 1 "Core/Src/pid.cpp"
+   1:Core/Src/pid.cpp **** #include "pid.h"
+   2:Core/Src/pid.cpp **** #include "math.h"
+   3:Core/Src/pid.cpp **** #define SampleTime 10
+   4:Core/Src/pid.cpp **** float max, min;
+   5:Core/Src/pid.cpp **** float lastError = 0;
+   6:Core/Src/pid.cpp **** float iError = 0;
+   7:Core/Src/pid.cpp **** 
+   8:Core/Src/pid.cpp **** void PID::setKp(float kp) { Kp = kp; }
+  28              		.loc 1 8 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33              	.LVL0:
+  34              		.loc 1 8 0
+  35 0000 80ED000A 		vstr.32	s0, [r0]
+  36 0004 7047     		bx	lr
+  37              		.cfi_endproc
+  38              	.LFE237:
+  40              		.section	.text._ZN3PID5setKiEf,"ax",%progbits
+  41              		.align	1
+  42              		.global	_ZN3PID5setKiEf
+  43              		.syntax unified
+  44              		.thumb
+  45              		.thumb_func
+  46              		.fpu fpv4-sp-d16
+  48              	_ZN3PID5setKiEf:
+  49              	.LFB238:
+   9:Core/Src/pid.cpp **** void PID::setKi(float ki) { Ki = ki; }
+  50              		.loc 1 9 0
+  51              		.cfi_startproc
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 2
+
+
+  52              		@ args = 0, pretend = 0, frame = 0
+  53              		@ frame_needed = 0, uses_anonymous_args = 0
+  54              		@ link register save eliminated.
+  55              	.LVL1:
+  56              		.loc 1 9 0
+  57 0000 80ED010A 		vstr.32	s0, [r0, #4]
+  58 0004 7047     		bx	lr
+  59              		.cfi_endproc
+  60              	.LFE238:
+  62              		.section	.text._ZN3PID5setKdEf,"ax",%progbits
+  63              		.align	1
+  64              		.global	_ZN3PID5setKdEf
+  65              		.syntax unified
+  66              		.thumb
+  67              		.thumb_func
+  68              		.fpu fpv4-sp-d16
+  70              	_ZN3PID5setKdEf:
+  71              	.LFB239:
+  10:Core/Src/pid.cpp **** void PID::setKd(float kd) { Kd = kd; }
+  72              		.loc 1 10 0
+  73              		.cfi_startproc
+  74              		@ args = 0, pretend = 0, frame = 0
+  75              		@ frame_needed = 0, uses_anonymous_args = 0
+  76              		@ link register save eliminated.
+  77              	.LVL2:
+  78              		.loc 1 10 0
+  79 0000 80ED020A 		vstr.32	s0, [r0, #8]
+  80 0004 7047     		bx	lr
+  81              		.cfi_endproc
+  82              	.LFE239:
+  84              		.section	.text._ZN3PID6setPIDEfff,"ax",%progbits
+  85              		.align	1
+  86              		.global	_ZN3PID6setPIDEfff
+  87              		.syntax unified
+  88              		.thumb
+  89              		.thumb_func
+  90              		.fpu fpv4-sp-d16
+  92              	_ZN3PID6setPIDEfff:
+  93              	.LFB240:
+  11:Core/Src/pid.cpp **** void PID::setPID(float kp, float ki, float kd)
+  12:Core/Src/pid.cpp **** {
+  94              		.loc 1 12 0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              	.LVL3:
+  99 0000 10B5     		push	{r4, lr}
+ 100              	.LCFI0:
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 4, -8
+ 103              		.cfi_offset 14, -4
+ 104 0002 2DED028B 		vpush.64	{d8}
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 16
+ 107              		.cfi_offset 80, -16
+ 108              		.cfi_offset 81, -12
+ 109 0006 0446     		mov	r4, r0
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 3
+
+
+ 110 0008 F0EE608A 		vmov.f32	s17, s1
+ 111 000c B0EE418A 		vmov.f32	s16, s2
+  13:Core/Src/pid.cpp ****     setKp(kp);
+ 112              		.loc 1 13 0
+ 113 0010 FFF7FEFF 		bl	_ZN3PID5setKpEf
+ 114              	.LVL4:
+  14:Core/Src/pid.cpp ****     setKi(ki);
+ 115              		.loc 1 14 0
+ 116 0014 B0EE680A 		vmov.f32	s0, s17
+ 117 0018 2046     		mov	r0, r4
+ 118 001a FFF7FEFF 		bl	_ZN3PID5setKiEf
+ 119              	.LVL5:
+  15:Core/Src/pid.cpp ****     setKd(kd);
+ 120              		.loc 1 15 0
+ 121 001e B0EE480A 		vmov.f32	s0, s16
+ 122 0022 2046     		mov	r0, r4
+ 123 0024 FFF7FEFF 		bl	_ZN3PID5setKdEf
+ 124              	.LVL6:
+  16:Core/Src/pid.cpp **** }
+ 125              		.loc 1 16 0
+ 126 0028 BDEC028B 		vldm	sp!, {d8}
+ 127              	.LCFI2:
+ 128              		.cfi_restore 80
+ 129              		.cfi_restore 81
+ 130              		.cfi_def_cfa_offset 8
+ 131              	.LVL7:
+ 132 002c 10BD     		pop	{r4, pc}
+ 133              		.cfi_endproc
+ 134              	.LFE240:
+ 136              		.section	.text._ZN3PID9setlimitsEff,"ax",%progbits
+ 137              		.align	1
+ 138              		.global	_ZN3PID9setlimitsEff
+ 139              		.syntax unified
+ 140              		.thumb
+ 141              		.thumb_func
+ 142              		.fpu fpv4-sp-d16
+ 144              	_ZN3PID9setlimitsEff:
+ 145              	.LFB241:
+  17:Core/Src/pid.cpp **** void PID::setlimits(float upp_out, float low_out)
+  18:Core/Src/pid.cpp **** {
+ 146              		.loc 1 18 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150              		@ link register save eliminated.
+ 151              	.LVL8:
+  19:Core/Src/pid.cpp ****     max = upp_out;
+ 152              		.loc 1 19 0
+ 153 0000 80ED030A 		vstr.32	s0, [r0, #12]
+  20:Core/Src/pid.cpp ****     min = low_out;
+ 154              		.loc 1 20 0
+ 155 0004 C0ED040A 		vstr.32	s1, [r0, #16]
+  21:Core/Src/pid.cpp **** }
+ 156              		.loc 1 21 0
+ 157 0008 7047     		bx	lr
+ 158              		.cfi_endproc
+ 159              	.LFE241:
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 4
+
+
+ 161              		.global	__aeabi_f2d
+ 162              		.global	__aeabi_ddiv
+ 163              		.global	__aeabi_dadd
+ 164              		.global	__aeabi_d2f
+ 165              		.section	.text._ZN3PID10computePIDEff,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	_ZN3PID10computePIDEff
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	_ZN3PID10computePIDEff:
+ 174              	.LFB242:
+  22:Core/Src/pid.cpp **** 
+  23:Core/Src/pid.cpp **** float PID::computePID(float setpoint, float obtain)
+  24:Core/Src/pid.cpp **** {
+ 175              		.loc 1 24 0
+ 176              		.cfi_startproc
+ 177              		@ args = 0, pretend = 0, frame = 0
+ 178              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179              	.LVL9:
+ 180 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 181              	.LCFI3:
+ 182              		.cfi_def_cfa_offset 24
+ 183              		.cfi_offset 3, -24
+ 184              		.cfi_offset 4, -20
+ 185              		.cfi_offset 5, -16
+ 186              		.cfi_offset 6, -12
+ 187              		.cfi_offset 7, -8
+ 188              		.cfi_offset 14, -4
+ 189 0002 2DED028B 		vpush.64	{d8}
+ 190              	.LCFI4:
+ 191              		.cfi_def_cfa_offset 32
+ 192              		.cfi_offset 80, -32
+ 193              		.cfi_offset 81, -28
+ 194 0006 0446     		mov	r4, r0
+  25:Core/Src/pid.cpp ****     float error = setpoint - obtain;
+ 195              		.loc 1 25 0
+ 196 0008 30EE608A 		vsub.f32	s16, s0, s1
+ 197              	.LVL10:
+  26:Core/Src/pid.cpp ****     iError = iError + (error * float(SampleTime)) / 1000.0;
+ 198              		.loc 1 26 0
+ 199 000c F2EE047A 		vmov.f32	s15, #1.0e+1
+ 200 0010 68EE277A 		vmul.f32	s15, s16, s15
+ 201 0014 17EE900A 		vmov	r0, s15
+ 202              	.LVL11:
+ 203 0018 FFF7FEFF 		bl	__aeabi_f2d
+ 204              	.LVL12:
+ 205 001c 0022     		movs	r2, #0
+ 206 001e 194B     		ldr	r3, .L11
+ 207 0020 FFF7FEFF 		bl	__aeabi_ddiv
+ 208              	.LVL13:
+ 209 0024 0646     		mov	r6, r0
+ 210 0026 0F46     		mov	r7, r1
+ 211 0028 174D     		ldr	r5, .L11+4
+ 212 002a 2868     		ldr	r0, [r5]	@ float
+ 213 002c FFF7FEFF 		bl	__aeabi_f2d
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 5
+
+
+ 214              	.LVL14:
+ 215 0030 3246     		mov	r2, r6
+ 216 0032 3B46     		mov	r3, r7
+ 217 0034 FFF7FEFF 		bl	__aeabi_dadd
+ 218              	.LVL15:
+ 219 0038 FFF7FEFF 		bl	__aeabi_d2f
+ 220              	.LVL16:
+ 221 003c 07EE100A 		vmov	s14, r0
+ 222 0040 2860     		str	r0, [r5]	@ float
+  27:Core/Src/pid.cpp ****     float output = Kp * error + Ki * iError;
+ 223              		.loc 1 27 0
+ 224 0042 D4ED007A 		vldr.32	s15, [r4]
+ 225 0046 67EE887A 		vmul.f32	s15, s15, s16
+ 226 004a D4ED016A 		vldr.32	s13, [r4, #4]
+ 227 004e 27EE267A 		vmul.f32	s14, s14, s13
+ 228 0052 77EE877A 		vadd.f32	s15, s15, s14
+ 229              	.LVL17:
+  28:Core/Src/pid.cpp ****     lastError = error;
+ 230              		.loc 1 28 0
+ 231 0056 0D4B     		ldr	r3, .L11+8
+ 232 0058 83ED008A 		vstr.32	s16, [r3]
+  29:Core/Src/pid.cpp ****     if (output > max)
+ 233              		.loc 1 29 0
+ 234 005c 94ED030A 		vldr.32	s0, [r4, #12]
+ 235 0060 B4EEE70A 		vcmpe.f32	s0, s15
+ 236 0064 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 237 0068 06D4     		bmi	.L7
+  30:Core/Src/pid.cpp ****     {
+  31:Core/Src/pid.cpp ****         output = max;
+  32:Core/Src/pid.cpp ****     }
+  33:Core/Src/pid.cpp ****     else if (output < min)
+ 238              		.loc 1 33 0
+ 239 006a 94ED040A 		vldr.32	s0, [r4, #16]
+ 240 006e B4EEE70A 		vcmpe.f32	s0, s15
+ 241 0072 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 242 0076 02DD     		ble	.L10
+ 243              	.LVL18:
+ 244              	.L7:
+  34:Core/Src/pid.cpp ****     {
+  35:Core/Src/pid.cpp ****         output = min;
+  36:Core/Src/pid.cpp ****     }
+  37:Core/Src/pid.cpp ****     // printf("SetPoint = %f, Output = %f\n", setpoint, output);
+  38:Core/Src/pid.cpp ****     return output;
+  39:Core/Src/pid.cpp **** }
+ 245              		.loc 1 39 0
+ 246 0078 BDEC028B 		vldm	sp!, {d8}
+ 247              	.LCFI5:
+ 248              		.cfi_remember_state
+ 249              		.cfi_restore 80
+ 250              		.cfi_restore 81
+ 251              		.cfi_def_cfa_offset 24
+ 252              	.LVL19:
+ 253 007c F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 254              	.LVL20:
+ 255              	.L10:
+ 256              	.LCFI6:
+ 257              		.cfi_restore_state
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 6
+
+
+  27:Core/Src/pid.cpp ****     lastError = error;
+ 258              		.loc 1 27 0
+ 259 007e B0EE670A 		vmov.f32	s0, s15
+ 260              	.LVL21:
+  38:Core/Src/pid.cpp **** }
+ 261              		.loc 1 38 0
+ 262 0082 F9E7     		b	.L7
+ 263              	.L12:
+ 264              		.align	2
+ 265              	.L11:
+ 266 0084 00408F40 		.word	1083129856
+ 267 0088 00000000 		.word	.LANCHOR0
+ 268 008c 00000000 		.word	.LANCHOR1
+ 269              		.cfi_endproc
+ 270              	.LFE242:
+ 272              		.global	iError
+ 273              		.global	lastError
+ 274              		.global	min
+ 275              		.global	max
+ 276              		.section	.bss.iError,"aw",%nobits
+ 277              		.align	2
+ 278              		.set	.LANCHOR0,. + 0
+ 281              	iError:
+ 282 0000 00000000 		.space	4
+ 283              		.section	.bss.lastError,"aw",%nobits
+ 284              		.align	2
+ 285              		.set	.LANCHOR1,. + 0
+ 288              	lastError:
+ 289 0000 00000000 		.space	4
+ 290              		.section	.bss.max,"aw",%nobits
+ 291              		.align	2
+ 294              	max:
+ 295 0000 00000000 		.space	4
+ 296              		.section	.bss.min,"aw",%nobits
+ 297              		.align	2
+ 300              	min:
+ 301 0000 00000000 		.space	4
+ 302              		.text
+ 303              	.Letext0:
+ 304              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 305              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 306              		.file 4 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\lib\\gcc\\arm-none-eabi
+ 307              		.file 5 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 308              		.file 6 "Core/Inc/pid.h"
+ 309              		.file 7 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 310              		.file 8 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 311              		.file 9 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include\
+ 312              		.file 10 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 313              		.file 11 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 314              		.file 12 "c:\\program files (x86)\\gnu tools arm embedded\\7 2017-q4-major\\arm-none-eabi\\include
+ 315              		.file 13 "<built-in>"
+ARM GAS  C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pid.cpp
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:18     .text._ZN3PID5setKpEf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:25     .text._ZN3PID5setKpEf:00000000 _ZN3PID5setKpEf
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:41     .text._ZN3PID5setKiEf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:48     .text._ZN3PID5setKiEf:00000000 _ZN3PID5setKiEf
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:63     .text._ZN3PID5setKdEf:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:70     .text._ZN3PID5setKdEf:00000000 _ZN3PID5setKdEf
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:85     .text._ZN3PID6setPIDEfff:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:92     .text._ZN3PID6setPIDEfff:00000000 _ZN3PID6setPIDEfff
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:137    .text._ZN3PID9setlimitsEff:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:144    .text._ZN3PID9setlimitsEff:00000000 _ZN3PID9setlimitsEff
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:166    .text._ZN3PID10computePIDEff:00000000 $t
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:173    .text._ZN3PID10computePIDEff:00000000 _ZN3PID10computePIDEff
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:266    .text._ZN3PID10computePIDEff:00000084 $d
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:281    .bss.iError:00000000 iError
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:288    .bss.lastError:00000000 lastError
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:300    .bss.min:00000000 min
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:294    .bss.max:00000000 max
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:277    .bss.iError:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:284    .bss.lastError:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:291    .bss.max:00000000 $d
+C:\Users\Aasman\AppData\Local\Temp\ccX6M3fk.s:297    .bss.min:00000000 $d
+
+UNDEFINED SYMBOLS
+__aeabi_f2d
+__aeabi_ddiv
+__aeabi_dadd
+__aeabi_d2f
